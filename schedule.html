@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<!-- ============================================
+     TASK KARATE - SCHEDULE PAGE
+     Version: 4.0.0
+     
+     ╔════════════════════════════════════════════╗
+     ║  CLASS SCHEDULES                           ║
+     ╠════════════════════════════════════════════╣
+     ║  Displays class schedules for:             ║
+     ║  • Kids Karate                             ║
+     ║  • Teens & Adults Karate                   ║
+     ║  • Sparring Program                        ║
+     ║  • Weapons Program                         ║
+     ║  • Special Classes (Mat Class, Testing)    ║
+     ║  • IS3 Eskrima                             ║
+     ╚════════════════════════════════════════════╝
+     
+     📁 Styles: css/schedule.css
+     📁 Core: css/paper-fu-core.css
+     📁 Theme: css/paper-fu-theme-hi-yah.css
+     ============================================ -->
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Task Karate – Schedules</title>
+  <meta
+    name="description"
+    content="View class schedules for Task Karate School in La Crosse, WI. Download PDF schedules or browse live tables for kids, teens, adults, weapons, sparring, mat class, testing, and IS3 Eskrima."
+  />
+  
+  <!-- ═══════════════════════════════════════════
+       FAVICON
+       ═══════════════════════════════════════════ -->
+  <link rel="icon" href="images/logo/Logo.png" />
+  
+  <!-- ═══════════════════════════════════════════
+       GOOGLE FONTS
+       ───────────────────────────────────────────
+       Bebas Neue - Headlines & display text
+       Inter     - Body text & UI elements
+       Caveat    - Handwritten accents
+       ═══════════════════════════════════════════ -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Caveat:wght@400;700&family=Inter:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet"
+  />
+  
+  <!-- ═══════════════════════════════════════════
+       STYLESHEETS
+       ───────────────────────────────────────────
+       Load order matters! Core → Theme → Components → Page
+       ═══════════════════════════════════════════ -->
+  <!-- Paper-Fu Core (structural foundation) -->
+  <link rel="stylesheet" href="css/paper-fu-core.css" />
+  
+  <!-- Hi-Yah! Theme (colors & fonts) -->
+  <link rel="stylesheet" href="css/paper-fu-theme-hi-yah.css" />
+  
+  <!-- Origami Enhancements (depth, shadows, polish) -->
+  <link rel="stylesheet" href="css/paper-fu-origami.css" />
+  
+  <!-- Component Styles -->
+  <link rel="stylesheet" href="css/paper-fu-navigation.css" />
+  <link rel="stylesheet" href="css/paper-fu-footer.css" />
+  
+  <!-- Page-Specific Styles -->
+  <link rel="stylesheet" href="css/schedule.css" />
+</head>
+
+<body>
+  <!-- Geometric Background -->
+  <div class="bg-geo" aria-hidden="true"></div>
+  
+  <!-- ═══════════════════════════════════════════
+       NAVIGATION
+       ───────────────────────────────────────────
+       Loaded dynamically from partials/navigation.html
+       via js/partials.js
+       ═══════════════════════════════════════════ -->
+  <div id="site-header"></div>
+  
+  
+  <!-- ═══════════════════════════════════════════
+       MAIN CONTENT
+       ═══════════════════════════════════════════ -->
+  <main id="main-content">
+    
+    
+    <!-- ═══════════════════════════════════════════
+         SECTION: PAGE HEADER
+         ───────────────────────────────────────────
+         Page title, description, and schedule selector
+         ═══════════════════════════════════════════ -->
+    <section class="pf-section pf-section--schedule" id="schedule-header">
+      <div class="container">
+        <div class="pf-stack">
+          <div class="pf-layer bottom"></div>
+          <div class="pf-layer top pf-panel pf-card">
+            
+            <!-- Eyebrow & Heading -->
+            <span class="eyebrow">La Crosse, Wisconsin</span>
+            <h1 class="heading-1">Schedules</h1>
+            <p class="muted">
+              Select a schedule to view below. You can download a print-friendly 
+              version of any schedule. Not sure where you fit? Call us—we'll 
+              point you to the right class.
+            </p>
+            
+            <!-- Schedule Selector Controls -->
+            <div class="schedule-controls mt-6">
+              <div class="schedule-selector">
+                <label for="schedule-select" class="form-label">Select Schedule:</label>
+                <div class="pf-select-wrapper">
+                  <select id="schedule-select" class="pf-select">
+                    <option value="kids">Kids Karate</option>
+                    <option value="teens-adults">Teens &amp; Adults Karate</option>
+                    <option value="sparring">Sparring Program</option>
+                    <option value="weapons">Weapons Program</option>
+                    <option value="special">Special Schedules (Mat Class &amp; Testing)</option>
+                    <option value="eskrima">IS3 Eskrima</option>
+                  </select>
+                </div>
+              </div>
+              
+              <button id="download-schedule-btn" class="pf-btn-download">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+                </svg>
+                Download Schedule
+              </button>
+            </div>
+            
+            <!-- Duration Note (moved from deleted info section) -->
+            <p class="schedule-duration-note muted text-sm mt-4">
+              <strong>Tip:</strong> Kids classes are 45 minutes (1 hour if marked with *). 
+              Teens/Adults classes are 1 hour. Gear is required for sparring.
+            </p>
+            
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    
+    <!-- ═══════════════════════════════════════════
+         SECTION: KIDS KARATE SCHEDULE
+         ───────────────────────────────────────────
+         Schedule table for kids classes
+         ═══════════════════════════════════════════ -->
+    <section class="pf-section pf-section--schedule schedule-panel" id="schedule-kids" data-schedule="kids">
+      <div class="container">
+        <div class="pf-stack">
+          <div class="pf-layer bottom"></div>
+          <div class="pf-layer top pf-panel pf-card">
+            
+            <span class="eyebrow">Core Karate • Kids</span>
+            <h2 class="heading-2">Kids</h2>
+            
+            <div class="schedule-table-wrapper mt-6">
+              <table class="schedule-table" id="kids-schedule-table">
+                <thead>
+                  <tr>
+                    <th class="col-belts">Belts</th>
+                    <th>Group</th>
+                    <th>Mon</th>
+                    <th>Tue</th>
+                    <th>Wed</th>
+                    <th>Thu</th>
+                    <th>Fri</th>
+                    <th>Sat</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <!-- Populated by schedule-loader.js -->
+                </tbody>
+              </table>
+            </div>
+            
+            <p class="text-sm muted mt-4">
+              * denotes a 1-hour class. All other kids sessions are 45 minutes.
+            </p>
+            
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    
+    <!-- ═══════════════════════════════════════════
+         SECTION: TEENS & ADULTS SCHEDULE
+         ───────────────────────────────────────────
+         Schedule table for teens & adults
+         ═══════════════════════════════════════════ -->
+    <section class="pf-section pf-section--schedule schedule-panel" id="schedule-teens-adults" data-schedule="teens-adults" hidden>
+      <div class="container">
+        <div class="pf-stack">
+          <div class="pf-layer bottom"></div>
+          <div class="pf-layer top pf-panel pf-card">
+            
+            <span class="eyebrow">Core Karate • Teens &amp; Adults</span>
+            <h2 class="heading-2">Teens &amp; Adults</h2>
+            
+            <div class="schedule-table-wrapper mt-6">
+              <table class="schedule-table" id="teens-adults-schedule-table">
+                <thead>
+                  <tr>
+                    <th class="col-belts">Belts</th>
+                    <th>Group</th>
+                    <th>Mon</th>
+                    <th>Tue</th>
+                    <th>Wed</th>
+                    <th>Thu</th>
+                    <th>Fri</th>
+                    <th>Sat</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <!-- Populated by schedule-loader.js -->
+                </tbody>
+              </table>
+            </div>
+            
+            <p class="text-sm muted mt-4">
+              All teen/adult classes are 1 hour. Saturday morning is 45 minutes.
+            </p>
+            
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    
+    <!-- ═══════════════════════════════════════════
+         SECTION: SPARRING SCHEDULE
+         ═══════════════════════════════════════════ -->
+    <section class="pf-section pf-section--schedule schedule-panel" id="schedule-sparring" data-schedule="sparring" hidden>
+      <div class="container">
+        <div class="pf-stack">
+          <div class="pf-layer bottom"></div>
+          <div class="pf-layer top pf-panel pf-card">
+            
+            <span class="eyebrow">Specialty • Contact Training</span>
+            <h2 class="heading-2">Sparring Program</h2>
+            
+            <div class="schedule-table-wrapper mt-6">
+              <table class="schedule-table" id="sparring-schedule-table">
+                <thead>
+                  <tr>
+                    <th class="col-belts">Belts</th>
+                    <th>Group</th>
+                    <th>Mon</th>
+                    <th>Tue</th>
+                    <th>Wed</th>
+                    <th>Thu</th>
+                    <th>Fri</th>
+                    <th>Sat</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <!-- Populated by schedule-loader.js -->
+                </tbody>
+              </table>
+            </div>
+            
+            <div class="schedule-note mt-4">
+              <p class="muted">
+                <strong>⚠️ Gear Required:</strong> Headgear, mouthguard, hand pads, 
+                and foot pads are required for all sparring sessions. Ask a staff 
+                member if you're unsure what you need.
+              </p>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    
+    <!-- ═══════════════════════════════════════════
+         SECTION: WEAPONS SCHEDULE
+         ═══════════════════════════════════════════ -->
+    <section class="pf-section pf-section--schedule schedule-panel" id="schedule-weapons" data-schedule="weapons" hidden>
+      <div class="container">
+        <div class="pf-stack">
+          <div class="pf-layer bottom"></div>
+          <div class="pf-layer top pf-panel pf-card">
+            
+            <span class="eyebrow">Specialty • Traditional Arms</span>
+            <h2 class="heading-2">Weapons Program</h2>
+            
+            <div class="schedule-table-wrapper mt-6">
+              <table class="schedule-table" id="weapons-schedule-table">
+                <thead>
+                  <tr>
+                    <th class="col-belts">Belts</th>
+                    <th>Group</th>
+                    <th>Mon</th>
+                    <th>Tue</th>
+                    <th>Wed</th>
+                    <th>Thu</th>
+                    <th>Fri</th>
+                    <th>Sat</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <!-- Populated by schedule-loader.js -->
+                </tbody>
+              </table>
+            </div>
+            
+            <p class="text-sm muted mt-4">
+              Students work with bo (staff), nunchaku, kama, and other traditional 
+              Okinawan weapons. Weapons are provided for beginners.
+            </p>
+            
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    
+    <!-- ═══════════════════════════════════════════
+         SECTION: SPECIAL SCHEDULES
+         ───────────────────────────────────────────
+         Mat Class & Testing dates
+         ═══════════════════════════════════════════ -->
+    <section class="pf-section pf-section--schedule schedule-panel" id="schedule-special" data-schedule="special" hidden>
+      <div class="container">
+        <div class="pf-stack">
+          <div class="pf-layer bottom"></div>
+          <div class="pf-layer top pf-panel pf-card">
+            
+            <span class="eyebrow">Specialty • Events</span>
+            <h2 class="heading-2">Mat Class &amp; Testing</h2>
+            
+            <!-- Mat Class Table -->
+            <h3 class="heading-4 mt-6">Mat Class (Groundwork)</h3>
+            <div class="schedule-table-wrapper mt-4">
+              <table class="schedule-table" id="mat-class-schedule-table">
+                <thead>
+                  <tr>
+                    <th class="col-belts">Belts</th>
+                    <th>Group</th>
+                    <th>Mon</th>
+                    <th>Tue</th>
+                    <th>Wed</th>
+                    <th>Thu</th>
+                    <th>Fri</th>
+                    <th>Sat</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <!-- Populated by schedule-loader.js -->
+                </tbody>
+              </table>
+            </div>
+            
+            <!-- Testing Dates -->
+            <h3 class="heading-4 mt-8">Belt Testing</h3>
+            <p class="muted mt-2">
+              Belt testing typically occurs on the <strong>last Saturday of each month</strong>.
+              Check the newsletter or ask your instructor for specific dates.
+            </p>
+            
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    
+    <!-- ═══════════════════════════════════════════
+         SECTION: IS3 ESKRIMA SCHEDULE
+         ═══════════════════════════════════════════ -->
+    <section class="pf-section pf-section--schedule schedule-panel" id="schedule-eskrima" data-schedule="eskrima" hidden>
+      <div class="container">
+        <div class="pf-stack">
+          <div class="pf-layer bottom"></div>
+          <div class="pf-layer top pf-panel pf-card">
+            
+            <span class="eyebrow">Specialty • Filipino Martial Arts</span>
+            <h2 class="heading-2">IS3 Eskrima</h2>
+            
+            <div class="schedule-table-wrapper mt-6">
+              <table class="schedule-table" id="eskrima-schedule-table">
+                <thead>
+                  <tr>
+                    <th class="col-belts">Belts</th>
+                    <th>Group</th>
+                    <th>Mon</th>
+                    <th>Tue</th>
+                    <th>Wed</th>
+                    <th>Thu</th>
+                    <th>Fri</th>
+                    <th>Sat</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <!-- Populated by schedule-loader.js -->
+                </tbody>
+              </table>
+            </div>
+            
+            <p class="text-sm muted mt-4">
+              Inayan System III Filipino stick fighting. Learn pattern-based drills, 
+              timing, distance management, and controlled contact when ready.
+            </p>
+            
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    
+  </main>
+  
+  
+  <!-- ═══════════════════════════════════════════
+       CLASS DETAILS MODAL - Paper-Fu Style
+       ───────────────────────────────────────────
+       Popup when clicking on time pills
+       ═══════════════════════════════════════════ -->
+  <div id="classModal" class="pf-modal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="pf-modal-backdrop"></div>
+    <div class="pf-modal-stack">
+      <!-- Stacked paper layers -->
+      <div class="pf-modal-layer pf-modal-layer--back"></div>
+      <div class="pf-modal-layer pf-modal-layer--mid"></div>
+      <div class="pf-modal-content">
+        <button class="pf-modal-close" type="button" data-modal-close aria-label="Close">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+            <path d="M18 6L6 18M6 6l12 12"/>
+          </svg>
+        </button>
+        
+        <!-- Belt color bar at top -->
+        <div class="pf-modal-belt-bar" id="modalBeltBar"></div>
+        
+        <h2 class="pf-modal-title" id="modalTitle"></h2>
+        <div class="pf-modal-body" id="modalBody"></div>
+      </div>
+    </div>
+  </div>
+  
+  
+  <!-- ═══════════════════════════════════════════
+       FOOTER
+       ───────────────────────────────────────────
+       Loaded dynamically from partials/footer.html
+       via js/partials.js
+       ═══════════════════════════════════════════ -->
+  <div id="site-footer"></div>
+  
+  
+  <!-- ═══════════════════════════════════════════
+       JAVASCRIPT
+       ───────────────────────────────────────────
+       Load order: partials → navigation → scroll → schedule-specific
+       ═══════════════════════════════════════════ -->
+  <!-- Core Scripts -->
+  <script src="js/partials.js"></script>
+  <script src="js/navigation.js"></script>
+  <script src="js/scroll-progress.js"></script>
+  <script src="js/back-to-top.js"></script>
+  
+  <!-- Page-Specific Scripts -->
+  <script src="js/schedule.js"></script>
+  
+  <!-- Schedule Data & Modal -->
+  <script src="js/schedule-loader.js"></script>
+  <script src="js/schedule-modal.js"></script>
+  
+</body>
+</html>
