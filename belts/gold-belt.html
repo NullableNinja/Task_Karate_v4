@@ -1,9 +1,11 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark" class="belt-green">
+<html lang="en" data-theme="dark" class="belt-gold">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Green Belt Testing Sheet - Task Karate</title>
+    <title>Gold Belt Testing Requirements | Task Karate School La Crosse, WI</title>
+    <meta name="description" content="Gold belt testing requirements for Task Karate School. Master advanced kicks, katas, weapons, and self-defense for your gold belt promotion.">
+    <link rel="canonical" href="https://taskkarate.com/belts/gold-belt.html">
     
     <!-- 
     Belt-Specific Theming Instructions:
@@ -74,6 +76,12 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+        }
+        
+        /* CSS Variables for Belt-Specific Theming */
+        :root {
+            --belt-color: #fbbf24; /* Gold belt */
+            --belt-color-rgb: 251, 191, 36;
         }
         
         body {
@@ -155,6 +163,23 @@
             color: var(--belt-color);
             font-weight: bold;
             font-size: 1.2rem;
+        }
+        
+        .technique-item-sub {
+            margin: 0.35rem 0;
+            padding-left: 2.5rem;
+            position: relative;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+        
+        .technique-item-sub::before {
+            content: "•";
+            position: absolute;
+            left: 1.5rem;
+            color: rgba(var(--belt-color-rgb), 0.6);
+            font-weight: bold;
         }
         
         .rules-box {
@@ -306,7 +331,18 @@
             .technique-item::before {
                 color: #000;
                 font-size: 9pt;
-                left: 0.03in;
+            }
+            
+            .technique-item-sub {
+                font-size: 7pt;
+                margin: 0.01in 0;
+                padding-left: 0.2in;
+                line-height: 1.1;
+                color: #333;
+            }
+            
+            .technique-item-sub::before {
+                color: #666;
             }
             
             .rules-box {
@@ -331,7 +367,6 @@
             
             .rule-item::before {
                 color: #991b1b;
-                left: 0.03in;
             }
             
             .schedule-box {
@@ -365,43 +400,34 @@
     </style>
 </head>
 <body>
+    <a href="#main-container" style="position: absolute; top: -40px; left: 0; background: #0f4c81; color: white; padding: 8px 16px; text-decoration: none; font-weight: 600; z-index: 100; border-radius: 0 0 4px 0;" onfocus="this.style.top='0'" onblur="this.style.top='-40px'">Skip to main content</a>
     
-    <div class="container">
+    <div id="main-container" class="container">
         <div class="header">
-            <img src="images/logo/Logo.png" alt="Task Karate Logo" class="logo">
-            <h1>Green Belt Testing Sheet</h1>
+            <img src="../images/logo/Logo.png" alt="Task Karate Logo" class="logo">
+            <h1>Gold Belt Testing Sheet</h1>
         </div>
         
         <div class="section">
             <div class="section-header">Fighting Stance</div>
-            <div class="technique-item">Fighting Stance (with switching)</div>
-            <div class="technique-item">Advancing and Retreating</div>
-            <div class="technique-item">Step-Slide (fencing)</div>
+            <div class="technique-item">Fighting stance (with switching)</div>
+            <div class="technique-item">Advancing and retreating</div>
+            <div class="technique-item">Step slide (fencing)</div>
         </div>
         
         <div class="section">
             <div class="section-header">Punching</div>
-            <div class="technique-item">Jab</div>
             <div class="technique-item">Rear hand punch</div>
-        </div>
-        
-        <div class="section">
-            <div class="section-header">Punching Combination</div>
-            <div class="technique-item">Double punch (front jab, rear punch)</div>
         </div>
         
         <div class="section">
             <div class="section-header">Kicking</div>
             <div class="technique-item">Back leg snap front kick (top of the foot, land in back)</div>
-            <div class="technique-item">Front leg round kick (land in front)</div>
-            <div class="technique-item">Step, slide, side kick (land strong in front, slide back)</div>
         </div>
         
         <div class="section">
             <div class="section-header">Self-Defense (Emergency and Release)</div>
-            <div class="technique-item">Front choke</div>
-            <div class="technique-item">Double lapel grab</div>
-            <div class="technique-item">Same side, cross side, and two to one hand wrist grabs (6)</div>
+            <div class="technique-item">Front choke (step back, swing arm over, elbow)</div>
         </div>
         
         <div class="section">
@@ -411,20 +437,8 @@
         
         <div class="section">
             <div class="section-header">Traditional Form Movements</div>
-            <div class="technique-item">Front stance stepping punch</div>
-            <div class="technique-item">Front stance down block</div>
-            <div class="technique-item">Back stance down chop</div>
-        </div>
-        
-        <div class="section">
-            <div class="section-header">Form</div>
-            <div class="technique-item">Form #1</div>
-            <div class="technique-item">Bonus form (form #2, #3, Kan-na, or choice)</div>
-        </div>
-        
-        <div class="section">
-            <div class="section-header">Kick-Punch Combination</div>
-            <div class="technique-item">Front leg round kick, double punch</div>
+            <div class="technique-item">Front stance (advancing and retreating)</div>
+            <div class="technique-item">Front stance, stepping punch</div>
         </div>
         
         <div class="rules-box">
@@ -436,7 +450,7 @@
         
         <div class="schedule-box">
             <h3>Projected Promotion Schedule</h3>
-            <p><strong>24 to 40 lessons</strong> and <strong>3 to 5 months</strong> of attendance, as well as an understanding of the techniques, are required for promotion!</p>
+            <p><strong>12 to 24 lessons</strong> and <strong>2 to 3 months</strong> of attendance, as well as an understanding of the rules and techniques, are required for promotion!</p>
         </div>
         
     </div>

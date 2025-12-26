@@ -21,6 +21,27 @@
 
 
 /* ============================================
+   ACCESSIBILITY - SKIP LINK
+   ============================================ */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--pantone-classic-blue);
+  color: white;
+  padding: 8px 16px;
+  text-decoration: none;
+  font-weight: 600;
+  z-index: 100;
+  border-radius: 0 0 4px 0;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+
+/* ============================================
    SECTION 1: HERO
    ============================================
    Paper-Fu stacked hero with layered paper effect.

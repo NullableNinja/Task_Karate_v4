@@ -1,15 +1,10 @@
 /**
- * Belt Testing Requirements Modal with 3D Flip Cards
+ * Belt Testing Requirements Modal
  * ──────────────────────────────────────────────
  * Opens a Paper-Fu modal with an iframe showing
  * the testing requirements for each belt level.
  * 
- * Enhanced with 3D flip card interaction:
- * - Click front: Flip to show requirements
- * - Click "View Full Requirements": Open modal
- * - Click flipped card again: Flip back
- * 
- * @version 2.0.0
+ * @version 1.0.0
  * @file js/belt-modal.js
  */
 
@@ -52,8 +47,8 @@
   
   if (!modal || !modalFrame) return;
   
-  // Get all belt card flippers
-  const beltFlippers = document.querySelectorAll('.belt-card-flipper[data-belt]');
+  // Get all belt cards
+  const beltCards = document.querySelectorAll('.belt-card[data-belt]');
   
   /**
    * Open the modal with a specific belt's testing sheet
@@ -96,52 +91,15 @@
     }, 300);
   }
   
-  /**
-   * Toggle flip state of a belt card
-   * @param {HTMLElement} flipper - The flipper container
-   */
-  function toggleFlip(flipper) {
-    flipper.classList.toggle('is-flipped');
-  }
-  
-  // Belt card flipper click handlers
-  beltFlippers.forEach(flipper => {
-    const belt = flipper.dataset.belt;
-    const src = flipper.dataset.src;
-    
-    // Front card click - flip to back
-    const frontCard = flipper.querySelector('.belt-card-flipper__front .belt-card');
-    if (frontCard) {
-      frontCard.addEventListener('click', (e) => {
-        e.stopPropagation();
-        toggleFlip(flipper);
-      });
-    }
-    
-    // Back CTA button click - open modal
-    const backCTA = flipper.querySelector('.belt-card-back__cta');
-    if (backCTA) {
-      backCTA.addEventListener('click', (e) => {
-        e.stopPropagation();
-        if (belt && src) {
-          openModal(belt, src);
-          // Flip card back after opening modal
-          setTimeout(() => toggleFlip(flipper), 300);
-        }
-      });
-    }
-    
-    // Click anywhere on back card (except CTA) - flip back to front
-    const backCard = flipper.querySelector('.belt-card-back');
-    if (backCard) {
-      backCard.addEventListener('click', (e) => {
-        // Only flip back if we didn't click the CTA button
-        if (!e.target.closest('.belt-card-back__cta')) {
-          e.stopPropagation();
-          toggleFlip(flipper);
-        }
-      });
-    }
+  // Belt card click handlers
+  beltCards.forEach(card => {
+    card.addEventListener('click', () => {
+      const belt = card.dataset.belt;
+      const src = card.dataset.src;
+      if (belt && src) {
+        openModal(belt, src);
+      }
+    });
   });
   
   // Close button handler
