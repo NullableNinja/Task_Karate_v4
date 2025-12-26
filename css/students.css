@@ -486,6 +486,192 @@
 }
 
 /* ═══════════════════════════════════════════════
+   4.5. 3D FLIP CARD ENHANCEMENT
+   ───────────────────────────────────────────────
+   Flip animation to reveal belt requirements.
+   ═══════════════════════════════════════════════ */
+
+.belt-card-flipper {
+  position: relative;
+  cursor: pointer;
+  perspective: 1000px;
+  min-height: 180px;
+}
+
+.belt-card-flipper__inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.6s cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+.belt-card-flipper.is-flipped .belt-card-flipper__inner {
+  transform: rotateY(180deg);
+}
+
+.belt-card-flipper__front,
+.belt-card-flipper__back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.belt-card-flipper__front {
+  z-index: 2;
+  transform: rotateY(0deg);
+}
+
+.belt-card-flipper__back {
+  transform: rotateY(180deg);
+}
+
+/* Back card styling */
+.belt-card-back {
+  position: relative;
+  background: var(--pf-surface-2);
+  border: 1px solid var(--pf-border-color);
+  border-radius: var(--pf-radius-md);
+  padding: var(--pf-space-4);
+  min-height: 180px;
+  
+  /* Stacked paper shadow */
+  box-shadow: 
+    4px 4px 0 var(--pf-surface-3),
+    0 4px 12px rgba(0, 0, 0, 0.15);
+  
+  display: flex;
+  flex-direction: column;
+  gap: var(--pf-space-2);
+}
+
+.belt-card-back__title {
+  font-family: var(--pf-font-heading);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--belt-bg-solid, var(--pf-text-primary));
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: var(--pf-space-1);
+  padding-bottom: var(--pf-space-2);
+  border-bottom: 2px solid var(--belt-bg-solid, var(--pf-accent-primary));
+}
+
+.belt-card-back__requirements {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex-grow: 1;
+}
+
+.belt-card-back__requirements li {
+  position: relative;
+  font-size: 0.75rem;
+  color: var(--pf-text-secondary);
+  padding-left: var(--pf-space-4);
+  margin-bottom: var(--pf-space-1);
+}
+
+.belt-card-back__requirements li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: var(--belt-bg-solid, var(--pf-accent-primary));
+  font-weight: 700;
+}
+
+.belt-card-back__cta {
+  font-family: var(--pf-font-heading);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: var(--pf-space-2) var(--pf-space-3);
+  background: var(--belt-bg-solid, var(--pf-accent-primary));
+  color: white;
+  border: none;
+  border-radius: var(--pf-radius-sm);
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  margin-top: auto;
+}
+
+.belt-card-back__cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Belt-specific colors for back card */
+.belt-card-back.belt-card--white {
+  --belt-bg-solid: #d1d5db;
+  border: 2px solid #d1d5db;
+}
+
+.belt-card-back.belt-card--white .belt-card-back__title,
+.belt-card-back.belt-card--white .belt-card-back__cta {
+  color: #1a1a1a;
+}
+
+.belt-card-back.belt-card--gold {
+  --belt-bg-solid: #fbbf24;
+}
+
+.belt-card-back.belt-card--gold .belt-card-back__title,
+.belt-card-back.belt-card--gold .belt-card-back__cta {
+  color: #1a1a1a;
+}
+
+.belt-card-back.belt-card--orange {
+  --belt-bg-solid: #f97316;
+}
+
+.belt-card-back.belt-card--green {
+  --belt-bg-solid: #22c55e;
+}
+
+.belt-card-back.belt-card--purple {
+  --belt-bg-solid: #a855f7;
+}
+
+.belt-card-back.belt-card--blue {
+  --belt-bg-solid: #3b82f6;
+}
+
+.belt-card-back.belt-card--red {
+  --belt-bg-solid: #ef4444;
+}
+
+.belt-card-back.belt-card--brown {
+  --belt-bg-solid: #92400e;
+}
+
+.belt-card-back.belt-card--black {
+  --belt-bg-solid: #1f2937;
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .belt-card-flipper__inner {
+    transition: none;
+  }
+  
+  .belt-card-flipper.is-flipped .belt-card-flipper__inner {
+    transform: none;
+  }
+  
+  .belt-card-flipper.is-flipped .belt-card-flipper__front {
+    display: none;
+  }
+  
+  .belt-card-flipper.is-flipped .belt-card-flipper__back {
+    transform: none;
+    position: relative;
+  }
+}
+
+/* ═══════════════════════════════════════════════
    5. FAQ / STUDENT HANDBOOK
    ───────────────────────────────────────────────
    Paper-Fu styled handbook with proper layers.

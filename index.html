@@ -118,7 +118,8 @@
           <!-- Main hero image on top layer -->
           <div class="pf-layer top hero-wrapper">
             <img
-              src="images/hero/Cover_Image.jpg"
+              src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 800'%3E%3Crect fill='%230f172a' width='1200' height='800'/%3E%3C/svg%3E"
+              data-progressive="images/hero/Cover_Image.jpg"
               alt="Task Karate students celebrating on the mats"
               class="hero-image"
               loading="eager"
@@ -226,7 +227,7 @@
          ============================================ -->
     <section id="programs" class="pf-section">
       <div class="container">
-        <div class="pf-stack">
+        <div class="pf-stack" data-animate="fade-up">
           <div class="pf-layer bottom"></div>
           <div class="pf-layer top pf-panel">
             
@@ -294,7 +295,8 @@
                   </p>
                   <div class="program-img-wrapper">
                     <img 
-                      src="images/programs/Kids_Program.png"
+                      src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 400'%3E%3Crect fill='%230f4c81' width='600' height='400'/%3E%3C/svg%3E"
+                      data-progressive="images/programs/Kids_Program.png"
                       alt="Kids Karate program"
                       class="program-img"
                       loading="lazy"
@@ -312,7 +314,8 @@
                   </p>
                   <div class="program-img-wrapper">
                     <img 
-                      src="images/programs/Teen_Adult_Program.png"
+                      src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 400'%3E%3Crect fill='%23a855f7' width='600' height='400'/%3E%3C/svg%3E"
+                      data-progressive="images/programs/Teen_Adult_Program.png"
                       alt="Teens and adults karate program"
                       class="program-img"
                       loading="lazy"
@@ -330,7 +333,8 @@
                   </p>
                   <div class="program-img-wrapper">
                     <img 
-                      src="images/programs/IS3_Program.png"
+                      src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 400'%3E%3Crect fill='%23f97316' width='600' height='400'/%3E%3C/svg%3E"
+                      data-progressive="images/programs/IS3_Program.png"
                       alt="IS3 Eskrima program"
                       class="program-img"
                       loading="lazy"
@@ -348,7 +352,8 @@
                   </p>
                   <div class="program-img-wrapper">
                     <img 
-                      src="images/programs/Weapons_Program.png"
+                      src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 400'%3E%3Crect fill='%23ef4444' width='600' height='400'/%3E%3C/svg%3E"
+                      data-progressive="images/programs/Weapons_Program.png"
                       alt="Weapons training program"
                       class="program-img"
                       loading="lazy"
@@ -377,7 +382,7 @@
          ============================================ -->
     <section id="photos" class="pf-section">
       <div class="container">
-        <div class="pf-stack">
+        <div class="pf-stack" data-animate="fade-up">
           <div class="pf-layer bottom"></div>
           <div class="pf-layer top pf-panel">
             
@@ -435,7 +440,7 @@
          ============================================ -->
     <section id="contact" class="pf-section">
       <div class="container">
-        <div class="pf-stack">
+        <div class="pf-stack" data-animate="fade-up">
           <div class="pf-layer bottom"></div>
           <div class="pf-layer top pf-panel">
             
@@ -520,7 +525,7 @@
          ============================================ -->
     <section id="map" class="pf-section">
       <div class="container">
-        <div class="pf-stack">
+        <div class="pf-stack" data-animate="fade-up">
           <div class="pf-layer bottom"></div>
           <div class="pf-layer top pf-panel">
             
@@ -573,20 +578,249 @@
   
   
   <!-- ==========================================
+       FREE TRIAL POPUP MODAL
+       ==========================================
+       Displays on page load with 2-week free
+       trial offer. Hi-Yah! themed design.
+       Controlled by js/trial-popup.js
+       ========================================== -->
+  <div class="trial-popup" id="trial-popup" aria-hidden="true" role="dialog" aria-label="2-Week Free Trial Offer">
+    <div class="trial-popup__backdrop"></div>
+    <div class="trial-popup__container">
+      <div class="trial-popup__stack">
+        <div class="trial-popup__layer trial-popup__layer--bottom"></div>
+        <div class="trial-popup__layer trial-popup__layer--top">
+          <button class="trial-popup__close" id="trial-popup-close" aria-label="Close offer">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
+          
+          <div class="trial-popup__content">
+            <div class="trial-popup__badge">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
+              </svg>
+              <span>Free Trial</span>
+            </div>
+            
+            <h2 class="trial-popup__title">Train Free for 2 Weeks</h2>
+            <p class="trial-popup__subtitle">No payment info needed. Just pure karate.</p>
+            
+            <div class="trial-popup__features">
+              <div class="trial-popup__feature">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <div>
+                  <strong>Unlimited Classes</strong>
+                  <span>Train as much as you want</span>
+                </div>
+              </div>
+              
+              <div class="trial-popup__feature">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <div>
+                  <strong>All Programs</strong>
+                  <span>Kids, teens, and adults</span>
+                </div>
+              </div>
+              
+              <div class="trial-popup__feature">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <div>
+                  <strong>Zero Commitment</strong>
+                  <span>Cancel anytime, no questions</span>
+                </div>
+              </div>
+            </div>
+            
+            <a href="#contact" class="trial-popup__cta">
+              <span>Start Your Free Trial</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+            
+            <p class="trial-popup__note">New students only • Offer expires soon</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+  <!-- ==========================================
+       FLOATING ACTION BUTTON MENU
+       ==========================================
+       Expandable menu with quick actions.
+       Controlled by js/fab-menu.js
+       ========================================== -->
+  <div class="fab-menu" id="fab-menu">
+    <!-- Main FAB Button -->
+    <button class="fab-menu__main" id="fab-main" aria-label="Quick actions menu" aria-expanded="false">
+      <svg class="fab-menu__icon fab-menu__icon--default" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="1"></circle>
+        <circle cx="12" cy="5" r="1"></circle>
+        <circle cx="12" cy="19" r="1"></circle>
+      </svg>
+      <svg class="fab-menu__icon fab-menu__icon--close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
+    
+    <!-- FAB Actions (hidden by default) -->
+    <div class="fab-menu__actions" id="fab-actions">
+      <!-- Contact -->
+      <button class="fab-menu__action" data-action="contact" aria-label="Contact us">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+        </svg>
+        <span class="fab-menu__label">Contact</span>
+      </button>
+      
+      <!-- Free Trial -->
+      <button class="fab-menu__action" data-action="trial" aria-label="Start free trial">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20 12v10H4V12M22 7H2v5h20V7zM12 22V7M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7zM12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/>
+        </svg>
+        <span class="fab-menu__label">Free Trial</span>
+      </button>
+      
+      <!-- Schedule -->
+      <a href="schedule.html" class="fab-menu__action" aria-label="View schedule">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+          <line x1="16" y1="2" x2="16" y2="6"></line>
+          <line x1="8" y1="2" x2="8" y2="6"></line>
+          <line x1="3" y1="10" x2="21" y2="10"></line>
+        </svg>
+        <span class="fab-menu__label">Schedule</span>
+      </a>
+      
+      <!-- Call -->
+      <a href="tel:+16087819520" class="fab-menu__action" aria-label="Call us">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+        </svg>
+        <span class="fab-menu__label">Call</span>
+      </a>
+    </div>
+  </div>
+  
+  
+  <!-- ==========================================
+       CONTACT FORM MODAL
+       ==========================================
+       Popup form for contacting the school.
+       Sends email to taskkarateschool@gmail.com
+       Controlled by js/contact-modal.js
+       ========================================== -->
+  <div class="contact-modal" id="contact-modal" aria-hidden="true" role="dialog" aria-label="Contact Form">
+    <div class="contact-modal__backdrop"></div>
+    <div class="contact-modal__container">
+      <div class="contact-modal__stack">
+        <div class="contact-modal__layer contact-modal__layer--bottom"></div>
+        <div class="contact-modal__layer contact-modal__layer--top">
+          <button class="contact-modal__close" id="contact-modal-close" aria-label="Close contact form">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
+          
+          <div class="contact-modal__content">
+            <h3 class="contact-modal__title">Get in Touch</h3>
+            <p class="contact-modal__subtitle">We'll get back to you within 24 hours</p>
+            
+            <form class="contact-modal__form" id="contact-form">
+              <div class="contact-modal__field">
+                <label for="contact-name">Your Name</label>
+                <input 
+                  type="text" 
+                  id="contact-name" 
+                  name="name" 
+                  placeholder="John Doe" 
+                  required
+                >
+              </div>
+              
+              <div class="contact-modal__field">
+                <label for="contact-email">Email Address</label>
+                <input 
+                  type="email" 
+                  id="contact-email" 
+                  name="email" 
+                  placeholder="john@example.com" 
+                  required
+                >
+              </div>
+              
+              <div class="contact-modal__field">
+                <label for="contact-message">Your Message</label>
+                <textarea 
+                  id="contact-message" 
+                  name="message" 
+                  placeholder="Tell us how we can help..." 
+                  rows="5"
+                  required
+                ></textarea>
+              </div>
+              
+              <button type="submit" class="contact-modal__submit">
+                <span>Send Message</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+                  <line x1="22" y1="2" x2="11" y2="13"></line>
+                  <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                </svg>
+              </button>
+              
+              <p class="contact-modal__status" id="contact-status"></p>
+            </form>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+  <!-- ==========================================
        JAVASCRIPT FILES
        ==========================================
        Load order:
        1. partials.js - Loads nav and footer HTML
        2. navigation.js - Hamburger menu
        3. scroll-progress.js - Progress bar
-       4. tabs.js - Program tabs
-       5. back-to-top.js - Back to top button
+       4. scroll-animations.js - Scroll-triggered animations
+       5. hero-parallax.js - Hero parallax effect
+       6. progressive-images.js - Progressive image loading
+       7. page-transitions.js - Page navigation transitions
+       8. tabs.js - Program tabs
+       9. photo-lightbox.js - Photo gallery viewer
+       10. fab-menu.js - Floating action button menu
+       11. back-to-top.js - Back to top button
+       12. trial-popup.js - Free trial popup
        ========================================== -->
   <script src="js/partials.js"></script>
   <script src="js/navigation.js"></script>
   <script src="js/scroll-progress.js"></script>
+  <script src="js/scroll-animations.js"></script>
+  <script src="js/hero-parallax.js"></script>
+  <script src="js/progressive-images.js"></script>
+  <script src="js/page-transitions.js"></script>
   <script src="js/tabs.js"></script>
+  <script src="js/photo-lightbox.js"></script>
+  <script src="js/fab-menu.js"></script>
   <script src="js/back-to-top.js"></script>
+  <script src="js/trial-popup.js"></script>
   
 </body>
 </html>

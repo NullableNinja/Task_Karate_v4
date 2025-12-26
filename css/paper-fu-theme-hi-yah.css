@@ -34,10 +34,15 @@
    
    FONTS USED:
    • Bebas Neue - Headlines (bold, martial arts feel)
-   • Inter - Body text (clean, readable)
-   • Caveat - Handwritten notes (Paper-Fu touch)
+   • Inter Variable - Body text (smooth weight transitions)
+   • Caveat Variable - Handwritten notes (Paper-Fu touch)
+   
+   VARIABLE FONT BENEFITS:
+   • Smoother weight transitions on hover
+   • Better optical sizing for legibility
+   • More design control with font-weight
    ============================================ */
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Caveat:wght@400;600&family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Caveat:wght@400..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
 
 /* ============================================
@@ -219,6 +224,11 @@ body {
   background-color: var(--pf-bg-primary);
   color: var(--pf-text-primary);
   font-family: var(--pf-font-primary);
+  font-optical-sizing: auto;
+  font-feature-settings: "liga" 1, "calt" 1;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 /* Geometric gradient background overlay */
